@@ -49,7 +49,11 @@ class Search extends React.Component {
             </div>
             <div className="search-books-results">
               <ol className="books-grid">
-                  {this.state.books.length > 0 && this.state.books.map(book => <book key={book.id} {...book} moveBook={this.props.moveBook}/>)}
+                  {this.state.books.length > 0 && this.state.books.map(book => {
+                       const foundShelf = this.props.books.filter(searchBook => searchBook.id === book.id)
+                       return <book key={book.id} {...book} moveBook={this.props.moveBook}/>
+                       }
+                  )}
               </ol>
             </div>
           </div>
