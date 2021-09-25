@@ -3,6 +3,8 @@ import React from 'react'
 import './App.css'
 import Shelf from './Components/Shelf';
 import Search from './Components/Search';
+import button from './Components/button';
+import title from './Components/title';
 import * as BooksAPI from './BooksAPI';
 
 class BooksApp extends React.Component {
@@ -41,13 +43,9 @@ class BooksApp extends React.Component {
           <Search showSearchPage={this.updateSearchPageState} />
         ) : (
           <div className="list-books">
-            <div className="list-books-title">
-              <h1>MyReads</h1>
-            </div>
+            <title /> 
             <Shelf allBooks={this.state.books} changeShelf={this.changeBookShelf} />     
-            <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
-            </div>
+            <button showSearchPage={this.updateSearchPageState} />
           </div>
         )}
       </div>
